@@ -1,0 +1,30 @@
+
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>YepChat Sample Project</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" href="/css/main.css">
+
+        <script
+        src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+    </head>
+    <body>
+      <div class="notice">Your browser doesn't support CSS Grid Layout. Unfortunately, you won't be able to see the examples.
+      </div>
+    <div class="container">
+      <header>
+        <a href="/"><img src="https://www.yepchat.com/images/logo_yepchat.svg" width="150px" alt="yepchat.com"></a>
+        <h1><%= title %></h1>
+      </header>
+
+      <nav>
+        <% include ../partials/left-sidenav.ejs %>
+      </nav>
+
+    

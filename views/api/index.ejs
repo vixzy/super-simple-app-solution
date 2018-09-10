@@ -1,0 +1,64 @@
+
+<% include ../partials/header.ejs %>
+
+      <main>
+        <section>
+          <h1>Integrate with the Yelp Fusion API</h1>
+          <p>For this problem, please implement the backend API that supports the simple form below. The api endpoint is <i>/api/yelp</i> and the stub is located in <i>/controllers/api.js</i></p>
+          <p>
+          <h1>Behavior</h1>
+          The form below should perform an AJAX request to the local server's <i>/api/yelp</i> endpoint.  The endpoint will act as a proxy to the Yelp Fusion API - simply return the results to the client accordingly.  Some data transformation may be required.</p>
+          <p><h1>Results</h1>
+          The data returned from the API should be dispayed on this page after the request has returned.</p>
+          <p>Go ahead and try it now.</p>
+        </section>
+        <section>
+          <h1>Yelp Fusion Search</h1>
+          <p>
+          <form id="zip_form" >
+            <label for="zipcode">Zip Code</label> 
+            <input type="text" id="zipcode" name="zipcode" />
+            <input type="submit" value="search"/>
+          </form>
+          </section>
+          <section>
+          <div id="results-table">
+          <h1>Results</h1>
+          <table>
+          <thead>
+          <th>Name</th>
+          <th>Number</th>
+          </thead>
+          <tbody id="output">
+
+          </tbody>
+          </table>
+           </div>
+        </section>
+        </p>
+          
+       
+      </main>
+
+<script>
+  $(document).ready(function(){
+ $( "#zip_form" ).submit(function( event ) {
+        console.log("submitted form")
+        event.preventDefault();
+
+        var params = { zipcode: $("#zipcode").val()}
+         $.get( "/api/yelp", params, function( data ) {
+            window.test = data;
+            $("#results-table").show();
+            $("#output").empty();
+            for(var row of data){
+                $("#output").append("<tr><td>" + row.name + "</td><td>" + row.phone+"</td></tr>");
+            }
+            
+          });
+        
+      });
+
+  });
+  </script>
+<% include ../partials/footer.ejs %>
