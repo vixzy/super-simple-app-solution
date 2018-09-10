@@ -36,23 +36,21 @@ exports.doYelpSearch = async (req, res, next) => {
    
 
 
-  res.setHeader('Content-Type', 'application/json');
-  res.send(JSON.stringify(sampleData));
 
-  // const searchRequest = {
-  //   location: req.param("zipcode") || "02139"
-  // };
+  const searchRequest = {
+    location: req.param("zipcode") || "02139"
+  };
 
-  // const client = yelp.client(apiKey);
+  const client = yelp.client(apiKey);
 
-  // client.search(searchRequest).then(response => {
+  client.search(searchRequest).then(response => {
    
-  //   res.setHeader('Content-Type', 'application/json');
-  //   res.send(JSON.stringify(response.jsonBody.businesses));
+    res.setHeader('Content-Type', 'application/json');
+    res.send(JSON.stringify(response.jsonBody.businesses));
 
-  // }).catch(e => {
-  //   console.log(e);
-  // });
+  }).catch(e => {
+    console.log(e);
+  });
 
 
 
